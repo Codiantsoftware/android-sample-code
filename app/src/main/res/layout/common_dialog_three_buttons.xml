@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/padding_margin25">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:paddingStart="@dimen/padding_margin25"
+        android:paddingTop="@dimen/padding_margin5"
+        android:paddingEnd="@dimen/padding_margin25"
+        android:paddingBottom="@dimen/padding_margin10">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/crossIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/padding_margin5"
+            android:paddingTop="@dimen/padding_margin20"
+            android:paddingEnd="@dimen/padding_margin5"
+            android:src="@mipmap/ic_cross_medium"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/image"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:layout_marginTop="@dimen/padding_margin20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_margin25"
+            android:text="@string/app_name"
+            android:fontFamily="@font/outfit_medium"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size18"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/messageTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_margin30"
+            android:gravity="center"
+            android:fontFamily="@font/outfit_regular"
+            android:text=""
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+        <!--    bg_transparent_rounded_rect-->
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_margin40"
+            android:layout_marginBottom="@dimen/padding_margin15"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/continueText"
+            app:layout_constraintTop_toBottomOf="@+id/messageTV">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/noButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="@dimen/padding_margin12"
+                android:layout_marginBottom="@dimen/padding_margin5"
+                android:layout_weight="1"
+                android:background="@drawable/dr_orange_gradiant"
+                android:backgroundTint="@color/bg_edittext"
+                android:letterSpacing="0.1"
+                android:paddingTop="@dimen/padding_margin13"
+                android:paddingBottom="@dimen/padding_margin12"
+                android:text="@string/no"
+                android:textColor="@color/black"
+                android:textDirection="locale"
+                android:textSize="@dimen/text_size14"
+                android:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/yesButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/padding_margin5"
+                android:layout_weight="1"
+                android:background="@drawable/dr_orange_gradiant"
+                android:letterSpacing="0.1"
+                android:paddingTop="@dimen/padding_margin13"
+                android:paddingBottom="@dimen/padding_margin12"
+                android:text="@string/yes"
+                android:textColor="@color/white"
+                android:textDirection="locale"
+                android:textSize="@dimen/text_size14" />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/continueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_margin15"
+            android:text="@string/continue_text"
+            android:fontFamily="@font/outfit_medium"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size14"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonLayout" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

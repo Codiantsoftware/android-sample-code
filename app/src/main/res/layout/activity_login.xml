@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="loginVM"
+            type="com.example.myapplication.presentation.activities.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/padding_margin20"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/padding_margin20"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="@dimen/padding_margin50"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            style="@style/textViewStyle"
+            android:text="@string/welcome_back"
+            android:gravity="center"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_size30"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo"
+            android:layout_marginTop="@dimen/padding_margin30"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title_desc"
+            style="@style/textViewStyle"
+            android:text="@string/welcome_back_please_entry_your_details"
+            android:gravity="center"
+            android:fontFamily="@font/outfit_regular"
+            android:textSize="@dimen/text_size16"
+            android:textColor="@color/color_text_light"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            android:layout_marginTop="@dimen/padding_margin5"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_email"
+            style="@style/textViewStyle"
+            android:text="@string/email"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_size12"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/tv_title_desc"
+            android:layout_marginTop="@dimen/padding_margin40"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_email"
+            style="@style/editTextStyle"
+            android:hint="@string/email"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:maxLength="50"
+            android:text="@={loginVM.user.email}"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_email" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_password"
+            style="@style/textViewStyle"
+            android:text="@string/password"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_size12"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/et_email"
+            android:layout_marginTop="@dimen/padding_margin15"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_password"
+            style="@style/editTextStyle"
+            android:hint="@string/password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLength="15"
+            android:text="@={loginVM.user.password}"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_password" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_forgot"
+            style="@style/textViewStyle"
+            android:layout_width="wrap_content"
+            android:text="@string/forgot_password"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_size14"
+            android:textColor="@color/purple_500"
+            android:layout_marginTop="@dimen/padding_margin10"
+            android:padding="@dimen/padding_margin5"
+            android:onClick="@{()->loginVM.navigator.onForgotPasswordClick()}"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toBottomOf="@id/et_password"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            style="@style/textViewStyle"
+            android:layout_marginTop="@dimen/padding_margin25"
+            android:background="@drawable/dr_orange_gradiant"
+            android:text="@string/login"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:onClick="@{()->loginVM.navigator.onLoginClick()}"
+            android:fontFamily="@font/outfit_medium"
+            android:textSize="@dimen/text_size16"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/tv_forgot" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_google"
+            style="@style/textViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/padding_margin15"
+            android:text="@string/continue_with_google"
+            android:background="@color/transparent_color"
+            android:textAllCaps="false"
+            android:drawablePadding="@dimen/padding_margin15"
+            android:drawableStart="@drawable/icons_google"
+            android:textColor="@color/color_text"
+            android:fontFamily="@font/outfit_bold"
+            android:textSize="@dimen/text_size16"
+            android:onClick="@{()->loginVM.navigator.onGoogleSignUpClick()}"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintTop_toBottomOf="@id/btn_login" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintTop_toTopOf="@id/btn_google"
+            android:background="@drawable/border_transparent"
+            app:layout_constraintBottom_toBottomOf="@id/btn_google"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_account"
+            style="@style/textViewStyle"
+            android:layout_width="wrap_content"
+            android:text="@string/don_t_have_an_account"
+            android:fontFamily="@font/outfit_regular"
+            android:textSize="@dimen/text_size14"
+            android:textColor="@color/color_text_light"
+            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintEnd_toStartOf="@id/tv_signup"
+            app:layout_constraintTop_toBottomOf="@id/btn_google"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            android:layout_marginTop="@dimen/padding_margin20"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_signup"
+            style="@style/textViewStyle"
+            android:layout_width="wrap_content"
+            android:text="@string/sign_up_for_free"
+            android:fontFamily="@font/outfit_medium"
+            android:onClick="@{()->loginVM.navigator.onSignUpClick()}"
+            android:textSize="@dimen/text_size14"
+            android:textColor="@color/color_text"
+            android:layout_marginStart="@dimen/padding_margin5"
+            app:layout_constraintStart_toEndOf="@id/tv_account"
+            app:layout_constraintEnd_toEndOf="@id/guideline_end"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_account"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
